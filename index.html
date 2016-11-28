@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta content="yes" name="apple-mobile-web-app-capable" />
+    <meta content="yes" name="apple-touch-fullscreen" />
+    <meta content="black" name="apple-mobile-web-app-status-bar-style" />
+    <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" name="viewport" />
+    <meta charset="UTF-8" />
+    <title>头像生成器</title>
+    <link rel="stylesheet" href="./index.css">
+    <script src='scripts/zepto.js'></script>
+    <script src='scripts/swipeSlide.js'></script>
+    <!-- <script src='scripts/vconsole.min.js'></script> -->
+    <script src='scripts/hammer.min.js'></script>
+    <script src='scripts/index.js'></script>
+</head>
+
+<body>
+    <div id="createImg-container">
+        <div id="portrait-container">
+            <div class="portrait-top"></div>
+            <div class="portrait-wrap">
+                <p class="pinch-text">两指全屏拖动缩放</p>
+                <div class="img-showing">
+                    <div class="role-img"></div>
+                    <div class="img-wrapper">
+                        <ul>
+                        </ul>
+                    </div>
+                </div>
+                <ol class="portrait-tips">
+                </ol>
+                <div class="left bow"></div>
+                <div class="right bow"></div>
+            </div>
+            <div class="portrait-btn-wrap">
+                <div class="btn-create">生成头像</div>
+                <label class="btn-upload">
+                    更换头像
+                    <input type="file" style="display: none" class="file-image">
+                </label>
+            </div>
+            <div class="upload-btn-wrap">
+                <div class="btn-create">生成头像</div>
+                <label class="btn-upload">
+                    更换头像
+                    <input type="file" style="display: none" class="file-image">
+                </label>
+                <div class="btn-reset">复原头像</div>
+            </div>
+        </div>
+        <div class="portrait-mask"></div>
+        <div class="create-showing">
+            <div class="create-wrap"></div>
+            <div class="btn-again">再做一个</div>
+        </div>
+    </div>
+    <script>
+    //适配平台rem设置
+    var container_width = 300;
+
+    function changeHTML() {
+        var width = window.innerWidth;
+        if (width > 700) {
+            container_width = window.innerWidth * 0.234;
+            container_width = (container_width < 300) ? 300 : container_width;
+            var size = container_width * 100 / 375;
+        } else {
+            var size = width * 100 / 375;
+        }
+        document.querySelector('html').style.fontSize = size + 'px';
+    }
+    changeHTML();
+    </script>
+</body>
+
+</html>
